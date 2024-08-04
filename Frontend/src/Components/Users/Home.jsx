@@ -1,41 +1,16 @@
-import { Link } from "react-router-dom";
-import { useDispatch,useSelector} from "react-redux";
-import { logout } from '../../../Redux/Slices/AuthSlice'
+import Logo from "../../assets/Logo.png";
 
 
 function Home() {
-
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.userdata);
-
-  const handleLogout = () => {
-    dispatch(logout());
-  };
-
-    return (
-        <div>
-
-<nav>
-        <div className="flex justify-between px-6 py-2 bg-indigo-600 items-center">
-         
-          <div className="flex items-center space-x-6">
-       
-              <button  onClick={handleLogout} className="text-white font-semibold text-lg cursor-pointer">Logout</button>
-         
-          
-          </div>
-        </div>
-      </nav>
-            <h1>Home</h1>
-            <p>need to do design</p>
-            
-{user?( <Link to={'/info'}>
- <h1>INFO</h1>
- </Link>):null
-}
-           
-        </div>
-    )
+  return (
+    <div className="flex  items-center justify-center h-80">
+      <img 
+        src={Logo}
+        className="h-48 lg:h-60 w-auto object-contain"
+        alt="Logo"
+      />
+    </div>
+  );
 }
 
-export default Home
+export default Home;

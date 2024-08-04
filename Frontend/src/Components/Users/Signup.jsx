@@ -30,32 +30,17 @@ function Signup() {
 
   return (
     <section className="bg-gray-300 dark:bg-gray-900">
-      <nav>
-        <div className="flex justify-between px-6 py-2 bg-indigo-600 items-center">
-       
-          <div className="flex items-center space-x-6">
-
-          <Link to={"/"}>
-          <span className="text-white font-semibold text-lg cursor-pointer">Login</span>
-          </Link>
-           
-            <Link to ={"/register"}>
-            <span className="text-indigo-700 rounded font-semibold text-lg cursor-pointer bg-white px-4 py-1">Signup</span>
-            </Link>
-            
-          </div>
-        </div>
-      </nav>
+    
 
       <div className="flex min-h-full flex-1 flex-col  px-6 py-12 lg:px-8 bg-gray-100">                        
         <div className="flex flex-col items-center px-6 py-4 md:h-screen lg:py-0">
           <div className="flex mb-5 "style={{ marginLeft: '-26rem' }}>
-            <h1 className="text-xl font-bold text-indigo-700 md:text-3xl ">
+            <h1 className="text-xl font-bold text-customColor md:text-3xl ">
               Signup
             </h1>
           </div>
           
-          <div className="w-full bg-white border border-indigo-600 lg:mt-0 sm:max-w-lg xl:p-0">
+          <div className="w-full bg-white border border-customColor lg:mt-0 sm:max-w-lg xl:p-0">
             <div className="p-6 space-y-4 md:space-y-2 sm:p-8">
               <form 
               onSubmit={handleSubmit}
@@ -117,7 +102,7 @@ function Signup() {
 
                 <button
                   type="submit"
-                  className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-customColor hover:bg-customColor focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-customColor"
                 >
                   Signup
                 </button>
@@ -128,7 +113,7 @@ function Signup() {
                   Already have an account?{" "}
                   <Link
                     to="/"
-                    className="font-medium text-indigo-600 hover:underline dark:text-indigo-500"
+                    className="font-medium text-customColor hover:underline dark:text-customColor"
                   >
                     Login
                   </Link>

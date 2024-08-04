@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "./Components/Users/Signup";
-import Login from "./Components/Users/Login";
 import { Toaster } from "react-hot-toast";
-import Home from "./Components/Users/Home";
 import PrivatePages from "./Components/PrivatePages/PrivatePages";
-import Info from "./Components/Users/Info";
+import LandingPage from "./Pages/LandingPage.jsx";
+import HomePage from "./Pages/HomePage.jsx";
+import UserInfoPage from "./Pages/UserInfoPage.jsx";
 
 function App() {
   return (
@@ -12,11 +12,10 @@ function App() {
       <Toaster position="top-right" />
       <Routes>
         <Route path="/register" element={<Signup />} />
-        <Route path="/" element={<Login />} />
-
+        <Route path="/" element={<LandingPage />} />
         <Route element={<PrivatePages />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/info" element={<Info />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/info" element={<UserInfoPage />} />       
         </Route>
       </Routes>
     </Router>

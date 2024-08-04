@@ -1,27 +1,49 @@
-
-
-import { useDispatch } from "react-redux";
-import { logout } from '../../../Redux/Slices/AuthSlice'
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import axiosInstance from "../../api/axiosInstance";
+import toast from "react-hot-toast";
 
 function Info() {
-    const dispatch = useDispatch();
+  const [profileData, setProfileData] = useState([]);
+  const user = useSelector((state) => state.auth.userdata);
 
-    const handleLogout = () => {
-      dispatch(logout());
-    };
+  useEffect(() => {
+    const userId = user?.id;
+    if (userId) {
+      axiosInstance
+        .get("/info")
+        .then((response) => {        
+          setProfileData(response.data.userData);
+        })
+        .catch((error) => {
+          if (error.response && error.response.data.error) {
+            toast.error(error.response.data.error);
+          } else {
+            toast.error("An unexpected error occurred.");
+          }
+        });
+    }
+  }, [user]);
 
   return (
     <>
-      <nav>
-        <div className="flex justify-between px-6 py-2 bg-indigo-600 items-center">
-          <div className="flex items-center space-x-6">
-          <button  onClick={handleLogout} className="text-white font-semibold text-lg cursor-pointer">Logout</button>
-          </div>
-        </div>
-      </nav>
-      <div>
-        <h1>INFO</h1>
-        <p>info about me</p>
+      <div className="max-w-md mx-auto bg-customColor p-6 rounded-lg shadow-lg mt-10 mb-10 h-80">
+        <table className="w-full border-collapse">
+          <tbody>
+            <>
+              <tr className="border-b">
+                <td className="py-2 px-4 text-gray-700 font-medium">Name</td>
+                <td className="py-2 px-4 text-gray-800">{profileData?.name}</td>
+              </tr>
+              <tr className="border-b">
+                <td className="py-2 px-4 text-gray-700 font-medium">Email</td>
+                <td className="py-2 px-4 text-gray-800">
+                  {profileData?.email}
+                </td>
+              </tr>
+            </>
+          </tbody>
+        </table>
       </div>
     </>
   );
