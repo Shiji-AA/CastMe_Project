@@ -9,14 +9,16 @@ function Footer() {
       <footer className="bg-white dark:bg-black">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
-            <div className="mb-6 md:mb-0">
-              <Link to="/" className="flex items-center">
-                <img src={Text} className="h-16 mr-3" alt="Smart Learning" />
+
+            <div className="mb-6 md:mt-4 ml-2 w-1/2">
+              <Link to="" className="flex items-center">
+                <img src={Text} className="h-14 mr-3" alt="CastMe" />
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+
+            <div className="grid gap-8 sm:gap-6 sm:grid-cols-3 w-1/2">
               <div>
-                <h2 className="mb-6 text-md font-semibold text-gray-900 dark:text-white">
+                <h2 className="mb-6 text-md font-semibold text-gray-1000 dark:text-white">
                   Column One
                 </h2>
                 <ul className="text-gray-900 dark:text-gray-600 font-small">
@@ -38,7 +40,7 @@ function Footer() {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-md font-semibold text-gray-900 dark:text-white">
+                <h2 className="mb-6 text-md font-semibold text-gray-1000 dark:text-white">
                   Column Two
                 </h2>
                 <ul className="text-gray-900 dark:text-gray-600 font-small">
@@ -60,45 +62,49 @@ function Footer() {
                 </ul>
               </div>
               <div>
-                <h2 className="mb-6 text-md font-semibold text-gray-900 dark:text-white">
+                <h2 className="mb-6 text-md font-semibold text-gray-1000 dark:text-white">
                   Follow Us
                 </h2>
                 <ul className="text-gray-900 dark:text-gray-400 font-sm">
+
                   <li className="mb-1 flex items-center space-x-2">
-                    <div className="w-5 h-7 flex items-center justify-center rounded-full bg-black">
-                      <FontAwesomeIcon icon={faFacebook} className="text-white" />
+                    <div className="w-5 h-7 flex items-center justify-center ">
+                      <FontAwesomeIcon icon={faFacebook} size="md" />
                     </div>
                     <p className="ml-2">Facebook</p>
                   </li>
+
                   <li className="mb-1 flex items-center space-x-2">
-                    <div className="w-5 h-7 flex items-center justify-center rounded-full bg-black">
-                      <FontAwesomeIcon icon={faInstagram} className="text-white" />
+                    <div className="w-5 h-7 flex items-center justify-center ">
+                  <FontAwesomeIcon icon={faInstagram} size="md"/>
                     </div>
                     <p className="ml-2">Instagram</p>
                   </li>
-                  <li className="mb-1 flex items-center space-x-2">
-                    <div className="w-5 h-7 flex items-center justify-center rounded-full bg-black">
-                      <FontAwesomeIcon icon={faXTwitter} className="text-white" />
 
-                      
+                  <li className="mb-1 flex items-center space-x-2">
+                    <div className="w-5 h-7 flex items-center justify-center ">
+                      <FontAwesomeIcon icon={faXTwitter} size="md" />                      
                     </div>
                     <p className="ml-2">X</p>
                   </li>
+
                   <li className="mb-1 flex items-center space-x-2">
-                    <div className="w-5 h-7 flex items-center justify-center rounded-full bg-black">
-                      <FontAwesomeIcon icon={faLinkedin} className="text-white" />
+                    <div className="w-5 h-7 flex items-center justify-center ">
+                      <FontAwesomeIcon icon={faLinkedin} size="md" />
                     </div>
                     <p className="ml-2">LinkedIn</p>
                   </li>
                   <li className="mb-1 flex items-center space-x-2">
-                    <div className="w-5 h-7 flex items-center justify-center rounded-full bg-black">
-                      <FontAwesomeIcon icon={faYoutube} className="text-white" />
+                    <div className="w-5 h-7 flex items-center justify-center ">
+                      <FontAwesomeIcon icon={faYoutube} size="md" />
                     </div>
                     <p className="ml-2">YouTube</p>
                   </li>
                 </ul>
               </div>
             </div>
+
+
           </div>
           <br />
           <br />
