@@ -5,6 +5,7 @@ CastMe is a web application built using the MERN stack (mongodb, express.js, rea
 ## Links
 
 - **Live Link**: https://cast-me-project.vercel.app/
+- **Api Documentation** : https://documenter.getpostman.com/view/26504939/2sA3rxpYG9
 
 ## Features
 
