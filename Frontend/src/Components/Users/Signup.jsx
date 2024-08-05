@@ -17,6 +17,24 @@ function Signup() {
     if(password !==confirmpassword){
         return toast.error("passwords do not match")
     }
+    if (
+      !name.trim() ||
+      !email.trim() ||
+      !password.trim() ||
+      !confirmpassword.trim()
+    ) {
+      return toast.error("All fields are required");
+    }
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      return toast.error("Invalid email address");
+    }   
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      return toast.error(
+        "Password must contain at least 6 characters including at least one uppercase letter, one lowercase letter, one digit, and one special character."
+      );
+    }
+
 
     axiosInstance.post('/register',{name,email,password})
     .then((response)=>{

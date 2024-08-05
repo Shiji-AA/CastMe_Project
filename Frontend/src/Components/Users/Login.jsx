@@ -43,9 +43,9 @@ function Login() {
 
   return (
     <section className="bg-white dark:bg-gray-900 min-h-screen flex flex-col lg:flex-row">
-      {/* Login Form Container */}
+    
       <div className="flex-1 flex items-center justify-center p-8 lg:p-12 ml-20">
-        <div className="w-full max-w-md bg-white border border-customColor p-6 space-y-4 md:space-y-5">
+        <div className="w-full max-w-md bg-white  p-6 space-y-4 md:space-y-5">
           <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
             <div>
               <input
@@ -55,7 +55,7 @@ function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
-                className="bg-white border border-gray-400 text-gray-900 text-sm block w-full p-3"
+                className="bg-white border rounded border-gray-700 text-gray-900 text-sm block w-full p-3"
                 required
               />
             </div>
@@ -67,7 +67,7 @@ function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
-                className="bg-white border border-gray-400 text-gray-900 text-sm block w-full p-3"
+                className="bg-white border rounded border-gray-700 text-gray-900 text-sm block w-full p-3"
                 required
               />
             </div>
@@ -104,7 +104,7 @@ function Login() {
           </div>
         </div>
       </div>
-      {/* Logo and Text Container */}
+    
       <div className=" flex lg:w-1/2 flex-col items-center justify-center  mr-10">
         <img
           src={Logo}
