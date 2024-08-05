@@ -5,9 +5,6 @@ const axiosInstance = axios.create({
   baseURL: "https://castme-project-1.onrender.com/api/users",
 });
 
-
-
-
 // Request interceptor
 axiosInstance.interceptors.request.use(
   (config) => {

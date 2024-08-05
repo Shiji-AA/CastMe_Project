@@ -1,21 +1,19 @@
-
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import axiosInstance from "../../api/axiosInstance";
 
-
 function Signup() {
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
 
-  const handleSubmit=(e)=>{
-    e.preventDefault()
-    if(password !==confirmpassword){
-        return toast.error("passwords do not match")
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (password !== confirmpassword) {
+      return toast.error("passwords do not match");
     }
     if (
       !name.trim() ||
@@ -27,7 +25,7 @@ function Signup() {
     }
     if (!/\S+@\S+\.\S+/.test(email)) {
       return toast.error("Invalid email address");
-    }   
+    }
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{6,}$/;
     if (!passwordRegex.test(password)) {
       return toast.error(
@@ -35,36 +33,34 @@ function Signup() {
       );
     }
 
-
-    axiosInstance.post('/register',{name,email,password})
-    .then((response)=>{
-      if(response.data){
-        console.log(response.data)
-        toast.success(response.data.message)
-        navigate("/")
-      }
-    }) 
-     }
+    axiosInstance
+      .post("/register", { name, email, password })
+      .then((response) => {
+        if (response.data) {
+          console.log(response.data);
+          toast.success(response.data.message);
+          navigate("/");
+        }
+      });
+  };
 
   return (
     <section className="bg-gray-300 dark:bg-gray-900">
-    
-
-      <div className="flex min-h-full flex-1 flex-col  px-6 py-12 lg:px-8 bg-gray-100">                        
+      <div className="flex min-h-full flex-1 flex-col  px-6 py-12 lg:px-8 bg-gray-100">
         <div className="flex flex-col items-center px-6 py-4 md:h-screen lg:py-0">
-          <div className="flex mb-5 "style={{ marginLeft: '-26rem' }}>
+          <div className="flex mb-5 " style={{ marginLeft: "-26rem" }}>
             <h1 className="text-xl font-bold text-customColor md:text-3xl ">
               Signup
             </h1>
           </div>
-          
+
           <div className="w-full bg-white border border-customColor lg:mt-0 sm:max-w-lg xl:p-0">
             <div className="p-6 space-y-4 md:space-y-2 sm:p-8">
-              <form 
-              onSubmit={handleSubmit}
-              className="space-y-4 md:space-y-5" 
-              action="#">
-
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-4 md:space-y-5"
+                action="#"
+              >
                 <div>
                   <input
                     type="text"
@@ -78,7 +74,6 @@ function Signup() {
                   />
                 </div>
 
-              
                 <div>
                   <input
                     type="email"
@@ -107,9 +102,9 @@ function Signup() {
 
                 <div>
                   <input
-                   type="password"
-                   name="confirmpassword"
-                   id="confirmpassword"
+                    type="password"
+                    name="confirmpassword"
+                    id="confirmpassword"
                     value={confirmpassword}
                     onChange={(e) => setConfirmpassword(e.target.value)}
                     placeholder="Confirm Password"
@@ -124,28 +119,17 @@ function Signup() {
                 >
                   Signup
                 </button>
+              </form>
 
-                </form>
-
-                <p className="text-center text-sm font-semibold text-gray-900 dark:text-gray-400">
-                  Already have an account?{" "}
-                  <Link
-                    to="/"
-                    className="font-medium text-customColor hover:underline dark:text-customColor"
-                  >
-                    Login
-                  </Link>
-                </p>
-
-                {/* <div className="flex justify-center">
-                  <button
-                    type="button"
-                    className="py-2.5 px-7 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                  >
-                    Signup with Google
-                  </button>
-                </div> */}
-             
+              <p className="text-center text-sm font-semibold text-gray-900 dark:text-gray-400">
+                Already have an account?{" "}
+                <Link
+                  to="/"
+                  className="font-medium text-customColor hover:underline dark:text-customColor"
+                >
+                  Login
+                </Link>
+              </p>
             </div>
           </div>
         </div>
