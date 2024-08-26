@@ -5,6 +5,28 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cast me</title>
+
+
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '384235818043355', // Replace with your actual Facebook App ID
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v14.0' // Replace with your Facebook API version
+        });
+      };
+    
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
   </head>
   <body>
     <div id="root"></div>
