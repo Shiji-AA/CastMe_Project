@@ -6,7 +6,7 @@ import { setUserInfo } from "../../../Redux/Slices/AuthSlice";
 import axiosInstance from "../../api/axiosInstance";
 import Logo from "../../assets/Logo.png";
 import Text from "../../assets/Text.png";
-
+import {GoogleOAuthProvider,GoogleLogin} from '@react-oauth/google'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -47,7 +47,29 @@ function Login() {
     }
   };
 
+
+  const handleGoogleLoginSuccess = (response) => {
+    axiosInstance
+      .post("/google/login",response)
+      .then((res) => {
+        if (res.data.message) {
+          toast.success(res.data.message);
+          navigate("/home");
+        }
+      })
+      .catch((error) => {
+        toast.error(error.response?.data?.error || "Google Login Failed");
+      });
+  };
+
+  const handleGoogleLoginError = () => {
+    toast.error("Google Login Failed");
+  };
+
+
+
   return (
+    <GoogleOAuthProvider clientId="573835239362-g86ckrd2i46klmijqg9rtcs33keo9api.apps.googleusercontent.com">
     <section className="bg-white dark:bg-gray-900 mt-4 flex flex-col lg:flex-row">
       <div className="flex-1 flex items-center justify-center p-4">
         <div className="w-full max-w-md bg-white  p-6 space-y-4 md:space-y-5">
@@ -111,11 +133,24 @@ function Login() {
                 size="3x"
                 style={{ color: "#bc9b5d" }}
               />
-              <FontAwesomeIcon
-                icon={faGoogle}
-                size="3x"
-                style={{ color: "#bc9b5d" }}
-              />
+
+             
+
+                     <GoogleLogin
+                      onSuccess={handleGoogleLoginSuccess}
+                      onError={handleGoogleLoginError}
+                      buttonText="Register with Google"
+                    >
+                      <FontAwesomeIcon
+                        icon={faGoogle}
+                        size="3x"
+                        style={{ color: "#bc9b5d" }}
+                      />
+                    </GoogleLogin>
+
+       
+              
+
               <FontAwesomeIcon
                 icon={faApple}
                 size="3x"
@@ -139,6 +174,8 @@ function Login() {
         />
       </div>
     </section>
+    </GoogleOAuthProvider>
+
   );
 }
 
